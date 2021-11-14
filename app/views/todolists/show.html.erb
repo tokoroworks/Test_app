@@ -1,0 +1,13 @@
+<h1>詳細表示</h1>
+<h2>本文</h2>
+<p><%= @list.title %></p>
+<h2>投稿</h2>
+<p><%= @list.body %></p>
+            <% if @list.image.attached? %>
+                <%= image_tag @list.image.variant(resize:'300x300') %>
+            <% else %>
+                <%= image_tag 'no_image.png', size: '300x300', alt: "no_image" %>
+            <% end %>
+<p><%= link_to 'EDIT', edit_todolist_path %></p>
+<p><%= link_to 'DELETE', destroy_todolist_path(@list.id), method: :delete %></p>
+<p><%= link_to 'INDEX', todolists_path %></p>

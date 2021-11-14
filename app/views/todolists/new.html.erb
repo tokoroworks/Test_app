@@ -1,0 +1,15 @@
+<h1>投稿画面</h1>
+<% if @list.errors.any? %>
+    <%= @list.errors.count %>件のエラーが発生しました。
+    <% @list.errors.full_messages.each do |message| %>
+        <%= message %>
+    <% end %>
+<% end %>
+<%= form_with model:@list, url:'/todolists', local:true do |f| %>
+    <h2>タイトル</h2>
+    <%= f.text_field :title %>
+    <h2>本文</h2>
+    <%= f.text_field :body %>
+    <%= f.file_field :image %>
+    <%= f.submit '投稿' %>
+<% end %>

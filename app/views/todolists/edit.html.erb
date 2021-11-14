@@ -1,0 +1,11 @@
+<h1>編集画面</h1>
+<!--<%= debug @list %>-->
+    <!--<%= @list.inspect %>-->
+<%= form_with model: @list, url: "/todolists/#{@list.id}", local:true do |f| %>
+    <h2>タイトル</h2>
+    <%= f.text_field :title %>
+    <h2>本文</h2>
+    <%= f.text_field :body %>
+    <%= f.file_field :image %>
+    <%= f.submit '更新' %>
+<% end %>
